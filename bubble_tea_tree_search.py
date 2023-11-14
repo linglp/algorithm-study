@@ -10,7 +10,10 @@ mock_tree_structure = [
     }, 
     {
     "Taro milk tea": ["Taro milk tea with pearls"]
-    }
+    }, 
+    {
+    "Premium Black tea": ["Premium Black tea from Fujian"]
+    }, 
 ]
 
 def find_the_right_dict(node_name):
@@ -29,26 +32,23 @@ def find_children(node_name):
     if target_dict is not None: 
         try: 
             children = target_dict[node_name]
-            if len(children) > 1:
-                for i in children:
-                    all_children.append(i)
-                    print(f'{i} gets added')
-                    all_children = all_children + find_children(i)
-                    print(f'{children} get added')
-            else: 
-                all_children.append(children[0])
+            for i in children:
+                # add children
+                all_children.append(i)
+                print(f'{i} gets added')
+                # add grand children if any
+                all_children = all_children + find_children(i)
         except:
             # if an element doesn't have children to return
             print(f"{node_name} does not have any children")
-    else: 
-        all_children = [node_name]
     return all_children
 
-children = find_children("Bubble tea")
-print(f'children of bubble tea: {children}')
 
-# children = find_children("Black tea")
-# print(f'children of black tea tea: {children}')
+# children = find_children("Bubble tea")
+# print(f'children of bubble tea: {children}')
+
+children = find_children("Black tea")
+print(f'children of black tea tea: {children}')
 
 # children = find_children("Tea")
 # print(f'children of tea: {children}')
