@@ -11,6 +11,8 @@ def find_list_for_elem(elem, list_a, list_b):
         print('this element is not in a or b. something is wrong')
     
 def record_smaller_elem(a, b, list_c):
+    """push the element that is smaller to list c
+    """
     if a <= b:
         list_c.append(a)
     elif b < a:
@@ -18,6 +20,8 @@ def record_smaller_elem(a, b, list_c):
     return list_c
 
 def find_comparison_elem_index(a, b, list_a, list_b):
+    """Find the index of the element that is smaller, and the index of the element that is bigger
+    """
     a_elem_list = find_list_for_elem(a, list_a, list_b)
     b_elem_list = find_list_for_elem(b, list_a, list_b)
 
@@ -30,7 +34,7 @@ def find_comparison_elem_index(a, b, list_a, list_b):
     return index_smaller_elem, index_bigger_elem
 
 def find_where_smaller_elem(elem_one, elem_two, list_a, list_b):
-    """try to find where the smaller element belongs
+    """try to find which list the smaller element belongs
     """
     if elem_one >= elem_two:
         # find where elem one belongs since element two is smaller
@@ -40,6 +44,8 @@ def find_where_smaller_elem(elem_one, elem_two, list_a, list_b):
         return find_list_for_elem(elem_one, list_a, list_b)
     
 def find_alternate_list(list_one, list_a, list_b):
+    """given one list, return the other list
+    """
     if list_one == list_a:
         return list_b
     elif list_one == list_b:
@@ -48,6 +54,7 @@ def find_alternate_list(list_one, list_a, list_b):
 def merge_sort(list_a, list_b):
     # assuming list a and list b are both sorted
     # merge and sort these two lists 
+    
     list_c = []
     lst_contain_smaller_elem = list_a
     altnerate_lst = list_b
