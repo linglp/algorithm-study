@@ -1,3 +1,6 @@
+import time
+from functools import wraps
+
 # Given a string s, return the longest palindromic substring in s.
 def find_longest_palindromic(str):
 
@@ -13,8 +16,7 @@ def find_longest_palindromic(str):
                 # find the length 
                 str_one = str[pos:index+1]
                 # reverse string one and see if it is the same
-                reversed_lst_one = list(reversed(str_one))
-                str_two = ''.join(reversed_lst_one)
+                str_two = str_one[::-1]
 
                 # if the length is bigger than the existing palindromic str, then record the maximum length
                 if str_one == str_two and max_length < len(str_one):
@@ -23,10 +25,15 @@ def find_longest_palindromic(str):
 
             index = index + 1
 
+    if not longest_palindromic_str:
+        return s[0]
+    
     return longest_palindromic_str
     
 # case one: "babad"
 s = "babad"
+
+
 
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "bab"
@@ -37,7 +44,21 @@ s = "cbbd"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "bb"
 
-# # case two: "applepp"
+# # case three: "applepp"
 s = "aopepo"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "opepo"
+
+# case four: "a"
+s = "a"
+longest_palindromic_str = find_longest_palindromic(s)
+assert longest_palindromic_str == "a"
+
+# case four: "a"
+s = "ac"
+longest_palindromic_str = find_longest_palindromic(s)
+assert longest_palindromic_str == "a"
+
+s = "eeeeee"
+longest_palindromic_str = find_longest_palindromic(s)
+assert longest_palindromic_str == "eeeeee"
