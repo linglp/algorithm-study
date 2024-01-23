@@ -32,9 +32,6 @@ def find_longest_palindromic(str):
     
 # case one: "babad"
 s = "babad"
-
-
-
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "bab"
 
