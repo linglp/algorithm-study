@@ -1,9 +1,9 @@
 import time
 from functools import wraps
 
+#### solution 1
 # Given a string s, return the longest palindromic substring in s.
 def find_longest_palindromic(str):
-
     total_length_str = len(str)
     longest_palindromic_str = None
     max_length = 0
@@ -26,32 +26,26 @@ def find_longest_palindromic(str):
             index = index + 1
 
     if not longest_palindromic_str:
-        return s[0]
-    
+        return str[0]
     return longest_palindromic_str
-    
-# case one: "babad"
+
+
 s = "babad"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "bab"
 
-
-# case two: "cbbd"
 s = "cbbd"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "bb"
 
-# # case three: "applepp"
 s = "aopepo"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "opepo"
 
-# case four: "a"
 s = "a"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "a"
 
-# case four: "a"
 s = "ac"
 longest_palindromic_str = find_longest_palindromic(s)
 assert longest_palindromic_str == "a"
